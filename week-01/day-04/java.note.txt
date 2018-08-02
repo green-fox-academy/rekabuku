@@ -1,0 +1,43 @@
+public class Main {
+    public static void main (String[] args){
+        int intNum = 0;
+        intNum++; egzet hozzaad
+        intNum += 5;
+        double dub = 1.5;
+        boolean bool = true;
+
+        System.out.println(bool || false);
+    }
+
+}
+
+System.out.println(intNum % 4);
+System.out.println(intNum % 2 ==0); paros
+System.out.println(intNum % 2 !=0); paratlan 
+String name = "Alex";
+
+        System.out.println( "Szia" + name);
+
+
+
+char firstChart = 'c';
+
+
+
+int j = 0;
+do {
+System.out.println("Hello");
+j++;
+}while (j == 5);    //csak egyszer irja ki 
+
+
+
+import java.util.Scanner;   //ha irok egy nevet (line) - futtat - Hello + (line)
+
+public class Main {
+    public static void main (String[] args) {
+        Scanner sc = new Scanner (System.in);
+        String line = sc.nextLine();
+        System.out.println("Hello" + line);
+
+
