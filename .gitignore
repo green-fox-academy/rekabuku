@@ -5,3 +5,6 @@
 .idea/**/description.html
 out/
 *.iml
+.idea
+out
+*.xml
