@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+public class Main {
+    // Create a program that asks for a number and prints the multiplication table with that number
+    public static void main(String[] args) {
+	Scanner sc = new Scanner (System.in);
+	int num = sc.nextInt();
+
+	for (int i = 1; i < 11; i++) {
+        System.out.println(i + " * " + num + " = " + i*num);}
+    }
+
+    }
