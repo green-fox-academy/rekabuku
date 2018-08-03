@@ -7,5 +7,11 @@ public class Main {
 // "I won't cheat on the exam!"
 
 
+        String name = "I wont cheat on the exam!";
+        int i = 0;
+        while (i < 100) {
+            System.out.println(name);
+            i++;
+        }
     }
 }
