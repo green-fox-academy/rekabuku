@@ -11,7 +11,7 @@ public class Main {
 
     }
 
-    public static void printParams (String...xyz) { 
+    public static void printParams (String...xyz) {
         for (String arg : xyz) {
             System.out.print(arg + " ");
         }
