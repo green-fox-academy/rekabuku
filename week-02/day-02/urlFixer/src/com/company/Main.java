@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 	String url = "https//www.reddit.com/r/nevertellmethebots";
         System.out.println(url.length());
-        url = url.replace("nevertellmethebots","nevertellmetheodds");
+        url = url.replace("nevertellmethebots","nevertellmetheodds.com");
 
         // Accidentally I got the wrong URL for a funny subreddit. It's probably "odds" and not "bots"
 
