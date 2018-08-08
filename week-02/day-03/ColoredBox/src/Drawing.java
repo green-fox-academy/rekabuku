@@ -8,10 +8,13 @@ public class Drawing {
     public static void mainDraw(Graphics graphics) {
         // Draw a box that has different colored lines on each edge.
         graphics.setColor(Color.red);
+        graphics.drawLine(60, 70, 120, 70);
+        graphics.setColor(Color.CYAN);
+        graphics.drawLine(120,70 ,120 ,130 );
         graphics.setColor(Color.blue);
-        graphics.setColor(Color.yellow);
+        graphics.drawLine(60, 130, 120, 130);
         graphics.setColor(Color.black);
-
+        graphics.drawLine(60, 130, 60, 70);
 
 
     }
