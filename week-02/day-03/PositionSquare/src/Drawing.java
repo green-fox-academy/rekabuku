@@ -26,6 +26,7 @@ public class Drawing {
     }
 
     private static void drawRects(Graphics graphics, int x, int y) {
+
         graphics.fillRect(x, y, 50, 50);
     }
 

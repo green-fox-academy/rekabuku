@@ -1,7 +1,7 @@
 public class Main {
     public static void main (String[] args){
         int intNum = 0;
-        intNum++; egzet hozzaad
+        intNum++; egyet hozzaad
         intNum += 5;
         double dub = 1.5;
         boolean bool = true;
@@ -41,3 +41,9 @@ public class Main {
         System.out.println("Hello" + line);
 
 
+
+String name = "I wont cheat on the exam!";
+        int i = 0;
+        while (i < 100) {
+            System.out.println(name);
+            i++;
