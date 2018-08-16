@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Pirate {
     String name;
     int lifeScore;
@@ -14,8 +16,10 @@ public class Pirate {
         this.age = age;
     }
 
-    void fight() {
-        this.lifeScore--;
+    void fight(int hits) {
+        for (int i = 0; i < hits; i++) {
+            this.lifeScore--;
+        }
     }
 
     void drinkSomeRum(int numberOfShots) {
@@ -31,6 +35,27 @@ public class Pirate {
             System.out.println("Pour me anudder!");
         } else {
             System.out.println("Arghh, I'ma Pirate. How d'ya d'ink its goin?");
+        }
+    }
+
+    void die() {
+        this.drinkSomeRum(this.drunk);
+        for (int i = 0; i < this.drunk; i++) {
+        }
+        System.out.println("he's dead");
+    }
+
+    void brawl(Pirate enemy) {
+        Random rand = new Random();
+        int random = rand.nextInt(20);
+        if (this.lifeScore > 0 && enemy.lifeScore > 0) {
+            System.out.println("Fight!");
+        }
+        if (drunk > 30) {
+            System.out.println("You are too drunk to fight");
+        } else {
+            fight(random);
+            enemy.fight(random);
         }
     }
 
