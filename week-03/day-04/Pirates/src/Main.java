@@ -12,8 +12,6 @@ public class Main {
         Pirate pirate9 = new Pirate("Mike", 100, "sailor", 27);
         Pirate pirate10 = new Pirate("Sam", 100, "sailor", 28);
 
-        pirate1.drinkSomeRum(2);
-        pirate1.winParrot();
-        System.out.println(pirate1.drunk);
+        pirate1.howsItGoingMate(8);
     }
 }
