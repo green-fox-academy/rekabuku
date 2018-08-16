@@ -4,15 +4,15 @@ public class Pirate {
     String title;
     int age;
     int drunk;
+    int numberOfParrot;
 
 
 
-    Pirate(String name, int lifeScore, String title, int age, int drunk) {
+    Pirate(String name, int lifeScore, String title, int age) {
         this.name = name;
         this.lifeScore = lifeScore;
         this.title = title;
         this.age = age;
-        this.drunk = drunk;
 
     }
 
@@ -20,9 +20,15 @@ public class Pirate {
         this.lifeScore--;
     }
 
-    void drink() {
-        this.lifeScore--;
-        this.drunk++;
+    void drinkSomeRum(int numberOfShots){
+        for (int i = 0; i <numberOfShots ; i++) {
+            this.lifeScore--;
+            this.drunk++;
+        }
+    }
+
+    void winParrot (){
+        this.numberOfParrot++;
     }
 
     boolean isAlive() {
