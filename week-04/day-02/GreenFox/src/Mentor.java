@@ -9,6 +9,7 @@ public class Mentor extends Person {
     }
 
     public Mentor() {
+        super();
         this.level = "intermediate";
     }
 

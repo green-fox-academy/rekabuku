@@ -11,6 +11,7 @@ public class Student extends Person {
     }
 
     public Student() {
+        super();
         this.previousOrganization = "The school of Life";
         this.skippedDays = 0;
     }
@@ -22,8 +23,8 @@ public class Student extends Person {
 
     @Override
     public void introduce() {
-        System.out.println("Hi, I'm " + getName() + ", a " + getAge() + " year old " + getGender() + " from " + previousOrganization + " who skipped " +
-                skippedDays + " days from the course already.");
+        System.out.println("Hi, I'm " + getName() + ", a " + getAge() + " year old " + getGender() + " from " + this.previousOrganization + " who skipped " +
+                this.skippedDays + " days from the course already.");
     }
 
     public void skipDays(int numberOfDays) {
