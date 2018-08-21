@@ -6,6 +6,7 @@ public class Cohort {
     List<Student> students;
     List<Mentor> mentors;
 
+
     public Cohort(String name) {
         this.students = new ArrayList<Student>();
         this.mentors = new ArrayList<Mentor>();
