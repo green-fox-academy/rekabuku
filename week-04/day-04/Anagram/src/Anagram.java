@@ -4,10 +4,12 @@ public class Anagram {
     //Write a function, that takes two strings and returns a boolean value
     // based on if the two strings are Anagrams or not.
 
-    String name;
+    private String name1;
+    private String name2;
 
-    public Anagram(String name) {
-        this.name = name;
+    public Anagram() {
+        this.name1 = name1;
+        this.name2 = name2;
     }
 
     public boolean isAnagram(String firstWord, String secondWord) {
