@@ -1,0 +1,42 @@
+html {
+    font-family: "Arial Unicode MS";
+}
+
+body {
+    background: royalblue;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid darkgray;
+    font-size: xx-large;
+    width: 95%;
+    height: 90%;
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+th {
+    text-align: left;
+    color: gainsboro;
+    background-color: black;
+    padding: 30px;
+    border: 2px solid black;
+}
+
+td {
+    color: dimgray;
+    padding: 30px;
+    text-align: left;
+    border: 2px solid darkgray;
+}
+
+tr:nth-child(even) {
+    background-color: white;
+}
+
+tr:nth-child(odd) {
+    background-color: gainsboro;
+}
