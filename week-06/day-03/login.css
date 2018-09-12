@@ -1,0 +1,23 @@
+html {
+    font-family: Calibri;
+    color: dimgray;
+}
+
+body {
+    background-color: gainsboro;
+}
+
+form{
+    background-color: white;
+    text-align: left;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px;
+}
+h2{
+    text-align: right;
+    font-size: medium;
+}
+
