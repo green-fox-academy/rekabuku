@@ -1,0 +1,11 @@
+.button {
+    background-color: lightseagreen;
+    color: white;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+body{
+    font-family: "Arial Unicode MS";
+}
