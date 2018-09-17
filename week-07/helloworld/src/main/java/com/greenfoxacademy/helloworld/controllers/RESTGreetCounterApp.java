@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicLong;
 @RestController
 public class RESTGreetCounterApp {
     AtomicLong id = new AtomicLong(0);
-    @RequestMapping("/greeting")
+    @RequestMapping("/greetig")
     public Greeting greeting(@RequestParam("name") String name){
         return new Greeting( id.incrementAndGet(), name);
     }
