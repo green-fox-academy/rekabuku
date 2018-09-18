@@ -12,7 +12,7 @@ public class FillingAccounts {
     ArrayList<BankAccount> list = new ArrayList<>();
 
     @RequestMapping("/fillingaccounts")
-    public String ex1(Model model) {
+    public String listOfAccounts(Model model) {
         list.add(new BankAccount("Timon", 1000, "Apple", "Meerkat"));
         list.add(new BankAccount("Pumba", 500, "Bug", "Warthog"));
         list.add(new BankAccount("Nala", 1500, "Zebra", "Lion"));

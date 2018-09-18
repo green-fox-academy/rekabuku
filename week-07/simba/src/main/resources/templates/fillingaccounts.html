@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/fillingaccounts.css}"/>
+    <meta charset="utf-8"/>
     <title>Title</title>
 </head>
 <body>
-<ul>
+<table>
     <th:block th:each="element : ${bankList}">
-        <li th:text="|${element.getName()} ${#numbers.formatDecimal(element.getBalance(), 0, 'COMMA', 2, 'POINT')} ${element.getCurrency()} ${element.getAnimalType()}|"></li>
+        <tr>
+            <td th:text="${element.getName()}"/>
+            <td th:text="${#numbers.formatDecimal(element.getBalance(), 0, 'COMMA', 2, 'POINT')}"/>
+            <td th:text="${element.getCurrency()}"/>
+            <td th:text="${element.getAnimalType()}"/>
+        </tr>
     </th:block>
-</ul>
+</table>
 </body>
 </html>
