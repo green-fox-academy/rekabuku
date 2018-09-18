@@ -12,6 +12,7 @@ public class Show {
     @RequestMapping("/show")
     public String show (Model model){
         model.addAttribute("account" ,new BankAccount("Simba", 2000, "Zebra", "Lion"));
+        model.addAttribute("print", "This is an <em>HTML</em> text. <b>Enjoy yourself!</b>");
         return "show";
     }
 

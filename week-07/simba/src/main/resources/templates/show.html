@@ -8,6 +8,8 @@
 <ul>
     <li th:text="|${account.getName()} ${#numbers.formatDecimal(account.getBalance(), 0, 'COMMA', 2, 'POINT')} ${account.getCurrency()} ${account.getAnimalType()}|"></li>
 </ul>
+<p th:text="${print}" />
+<p th:utext="${print}" />
 
 </body>
 </html>
