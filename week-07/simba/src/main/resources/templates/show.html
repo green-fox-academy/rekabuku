@@ -6,7 +6,7 @@
 </head>
 <body>
 <ul>
-        <li th:text="|${account.getName()} ${account.getBalance()} ${account.getAnimalType()}|"></li>
+    <li th:text="|${account.getName()} ${#numbers.formatDecimal(account.getBalance(), 0, 'COMMA', 2, 'POINT')} ${account.getCurrency()} ${account.getAnimalType()}|"></li>
 </ul>
 
 </body>
