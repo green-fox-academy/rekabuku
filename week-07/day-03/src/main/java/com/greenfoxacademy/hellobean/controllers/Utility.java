@@ -4,10 +4,15 @@ import com.greenfoxacademy.hellobean.services.UtilityService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class Utility {
     UtilityService utilityService = new UtilityService();
+
+    public Utility(UtilityService utilityService) {
+        this.utilityService = utilityService;
+    }
 
     @RequestMapping("/useful")
     public String utilitiesOptions() {
@@ -20,6 +25,11 @@ public class Utility {
         return "colored";
     }
 
+    @RequestMapping("/useful/email")
+    public String email(@RequestParam(value = "email") String emailAddress, Model model) {
+        model.addAttribute("email", utilityService.isValid(emailAddress));
+        return "email";
+    }
 
 
 }
