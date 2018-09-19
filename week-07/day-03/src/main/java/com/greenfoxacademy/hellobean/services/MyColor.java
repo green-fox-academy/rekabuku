@@ -1,4 +1,4 @@
-package com.greenfoxacademy.hellobean;
+package com.greenfoxacademy.hellobean.services;
 
 public interface MyColor {
     public void printColor();

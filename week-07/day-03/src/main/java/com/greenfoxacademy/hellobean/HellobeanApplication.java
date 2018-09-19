@@ -1,5 +1,6 @@
 
 package com.greenfoxacademy.hellobean;
+import com.greenfoxacademy.hellobean.services.MyColor;
 import com.greenfoxacademy.hellobean.services.Printer;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -27,5 +28,5 @@ public class HellobeanApplication implements CommandLineRunner {
         myColor.printColor();
     }
 
-  
+
 }
