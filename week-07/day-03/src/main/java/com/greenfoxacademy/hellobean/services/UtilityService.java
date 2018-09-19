@@ -26,7 +26,8 @@ public class UtilityService {
 
     public boolean isValid(String email) {
         if (email.contains("@") && email.contains(".")) {
-        }
-        return true;
+            return true;
+        } else return false;
+
     }
 }

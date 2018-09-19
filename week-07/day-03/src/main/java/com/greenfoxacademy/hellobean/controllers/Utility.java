@@ -26,8 +26,9 @@ public class Utility {
     }
 
     @RequestMapping("/useful/email")
-    public String email(@RequestParam(value = "email") String emailAddress, Model model) {
+    public String validateEmail(@RequestParam(value = "email") String emailAddress, Model model) {
         model.addAttribute("email", utilityService.isValid(emailAddress));
+        model.addAttribute("emailAddress", emailAddress);
         return "email";
     }
 
