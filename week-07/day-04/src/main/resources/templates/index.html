@@ -2,33 +2,40 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Home</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
-<ul
-    <li>
-<a href="/login">Login</a>
-    </li>
-<br>
-<li>
-<a href="/nutritionstore">Nutrition Store</a>
-</li>
-<br>
-<li>
-<a href="/trickcenter">Trick Center</a>
-</li>
+
+<div>
+    <h1>Home</h1>
+    <ul>
+        <li>
+            <a href="/login">Login</a>
+        </li>
+        <li>
+            <a href="/nutritionstore">Nutrition Store</a>
+        </li>
+        <li>
+            <a href="/trickcenter">Trick Center</a>
+        </li>
+        <li>
+            <a href="/actionhistory">Action History</a>
+        </li>
+    </ul>
     <br>
-<li>
-<a href="/actionhistory">Action History</a>
-</li>
-<br>
+    <img src="/foxy.jpg">
+    <br><br>
 
-<img src="/foxy.jpg">
+    <span th:text="|This is ${name}.|"></span>
+    <span th:text="|Currently living on ${food} and ${drink}.|"></span>
+    <span th:text="|${name} knows ${trickCount} tricks.|"></span>
+    <br>
+    <h2>Known Tricks</h2>
+    <ul>
+        <li ${trickName}/>
+        <li ${trickName}/>
+    </ul>
+</div>
 
-<span th:text="|This is ${name}|"></span>
-<span th:text="|Currently living on ${food} and ${drink}|"></span>
-<span th:text="|${gender} knows ${trickCount} tricks|"></span>
-<br>
-<p th:text="Known tricks"/>
 </body>
 </html>

@@ -1,0 +1,14 @@
+html {
+    font-family: "Arial Unicode MS";
+    color: dimgrey;
+}
+
+body {
+    background-color: white;
+    text-align: left;
+    margin: auto;
+    padding-left: 75px;
+    padding-right: 75px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
