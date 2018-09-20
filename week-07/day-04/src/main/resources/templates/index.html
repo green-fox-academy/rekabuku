@@ -5,10 +5,30 @@
     <title>Home</title>
 </head>
 <body>
-<a href="/index/login">Login</a><br>
-<a href="/index/nutritionstore">Nutrition Store</a><br>
-<a href="/index/trickcenter">Trick Center</a><br>
-<a href="/index/actionhistory">Action History</a><br>
+<ul
+    <li>
+<a href="/index/login">Login</a>
+    </li>
+<br>
+<li>
+<a href="/index/nutritionstore">Nutrition Store</a>
+</li>
+<br>
+<li>
+<a href="/index/trickcenter">Trick Center</a>
+</li>
+    <br>
+<li>
+<a href="/index/actionhistory">Action History</a>
+</li>
+<br>
 
+<img src="/foxy.jpg">
+
+<span th:text="|This is ${name}|"></span>
+<span th:text="|Currently living on ${food} and ${drink}|"></span>
+<span th:text="|${gender} knows ${trickCount} tricks|"></span>
+<br>
+<p th:text="Known tricks"/>
 </body>
 </html>
