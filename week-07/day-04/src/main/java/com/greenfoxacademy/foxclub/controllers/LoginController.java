@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 @Controller
 public class LoginController {
     private FoxService foxService;
@@ -24,8 +23,9 @@ public class LoginController {
     public String getName(@RequestParam ("name") String name){
         if(name.isEmpty()){
             return "login";
-        }else foxService.addFox(name);
-
+        }else if (foxService.isNewFox(name)) {
+            foxService.addFox(name);
+        }
         return "redirect:/index?name=" + name;
     }
 }

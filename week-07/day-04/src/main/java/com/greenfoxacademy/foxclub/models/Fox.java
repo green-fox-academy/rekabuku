@@ -6,6 +6,10 @@ public class Fox {
     private Food food;
     private Trick trick;
 
+    public String getName() {
+        return name;
+    }
+
     public Fox(String name) {
         this.name = name;
     }
