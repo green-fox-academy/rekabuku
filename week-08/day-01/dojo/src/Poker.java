@@ -9,7 +9,8 @@ public class Poker {
                 myString = "White wins!";
             } else if (black.get(i).startsWith("A") && !white.get(i).startsWith("A")) {
                 myString = "Black wins!";
-            } else myString = "Klarikam osszal mar, szivem";
+            } else
+                myString = "Klarikam osszal mar, szivem";
 
         }
 
@@ -33,7 +34,7 @@ public class Poker {
                 numsBlack.add(0);
             }
         }
-        if (numsWithe.contains(0)){
+        if (numsWithe.contains(0)) {
             return false;
         }
         return true;
