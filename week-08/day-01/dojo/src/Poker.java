@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Poker {
     private String myString = "";
+    Card card = new Card();
 
     public String compareHands(ArrayList<String> white, ArrayList<String> black) {
         for (int i = 0; i < white.size(); i++) {
@@ -9,11 +10,8 @@ public class Poker {
                 myString = "White wins!";
             } else if (black.get(i).startsWith("A") && !white.get(i).startsWith("A")) {
                 myString = "Black wins!";
-            } else
-                myString = "Klarikam osszal mar, szivem";
-
+            }
         }
-
         return myString;
     }
 
@@ -50,4 +48,22 @@ public class Poker {
         }
         return myString;
     }
+
+    public String checkIfTie(ArrayList<Card> white, ArrayList<Card> black) {
+        ArrayList<Integer> num = new ArrayList<>();
+        for (int i = 0; i < white.size(); i++) {
+            if (white.get(i).getValue().equals(black.get(i).getValue())) {
+               num.add(1);
+            } else if (!white.get(i).getValue().equals(black.get(i).getValue())) {
+                num.add(0);
+            }
+            if (!num.contains(0)) {
+                myString = "Tie";
+            } else {
+                myString = "Not tie";
+            }
+        }
+        return myString;
+    }
+
 }
