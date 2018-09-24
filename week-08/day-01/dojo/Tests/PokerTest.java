@@ -14,4 +14,11 @@ public class PokerTest {
         ArrayList<String> blackPlayerCards = new ArrayList(asList("2H", "3D", "5S", "9C", "KD"));
         assertEquals("White wins!", poker.compareHands(withePlayerCards, blackPlayerCards));
     }
+
+    @Test
+    public void checkFlush() {
+        ArrayList<String> withePlayerCards = new ArrayList(asList("2H", "3H", "4H", "8H", "AH"));
+        ArrayList<String> blackPlayerCards = new ArrayList(asList("2H", "3D", "5S", "9C", "KD"));
+        assertTrue(poker.whiteHasFlush(withePlayerCards, blackPlayerCards));
+    }
 }
