@@ -38,4 +38,15 @@ public class Poker {
         }
         return true;
     }
+
+    public String checkHigherCard(ArrayList<String> white, ArrayList<String> black) {
+        for (int i = 0; i < black.size(); i++) {
+            if (black.get(i).startsWith("9") && !white.get(i).startsWith("9")) {
+                myString = "Black wins!";
+            } else if (white.get(i).startsWith("9") && !black.get(i).startsWith("9")) {
+                myString = "White wins!";
+            }
+        }
+        return myString;
+    }
 }
