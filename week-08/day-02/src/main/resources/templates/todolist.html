@@ -1,11 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <h1>Todos for today:</h1>
+<table>
+    <th:block th:each="task : ${todos}">
+        <tr>
+            <td th:text="${task.id}"/>
+            <td th:text="${task.urgent}"/>
+            <td th:text="${task.title}"/>
+            <td th:text="${task.done}"/>
+        </tr>
+    </th:block>
+</table>
 
 </body>
 </html>
