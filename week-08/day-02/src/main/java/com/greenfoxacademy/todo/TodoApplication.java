@@ -25,6 +25,7 @@ public class TodoApplication implements CommandLineRunner {
         todo.setTitle("Drink coffee");
 
         todoRepository.save(todo);
+        System.out.println(todoRepository.findAll());
 
     }
 }
