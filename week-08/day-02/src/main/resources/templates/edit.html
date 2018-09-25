@@ -3,9 +3,26 @@
 <head>
     <link rel="stylesheet" th:href="@{/todolist.css}"/>
     <meta charset="UTF-8">
-    <title>Edit todod</title>
+    <title>Edit todo</title>
 </head>
 <body>
+<form action="/todo/{id}/edit" method="post">
+    <h1>Edit todo</h1>
+    <div>
+        <label for="todo">Todo Description</label><br>
+        <input type="text" id="todo" name="todo">
+    </div>
+    <div>
+        <label for="isDone">Done</label>
+        <input type="checkbox" name="done" th:checked="${isDone}" id="isDone">
+    </div>
+    <div>
+        <label for="isUrgent">Urgent</label>
+        <input type="checkbox" name="urgent" th:checked="${isUrgent}" id="isUrgent">
+    </div>
+    <div>
+        <button  class="button" type="submit">Submit</button>
+    </div>
 
 </body>
 </html>
