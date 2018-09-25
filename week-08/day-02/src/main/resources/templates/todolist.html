@@ -21,6 +21,8 @@
         <th>URGENT</th>
         <th>ACTION</th>
         <th>DONE</th>
+        <th>DELETE</th>
+        <th>EDIT</th>
     </tr>
     </thead>
     <th:block th:each="task : ${todos}">
@@ -29,6 +31,8 @@
             <td th:text="${task.urgent}"/>
             <td th:text="${task.title}"/>
             <td th:text="${task.done}"/>
+            <td> <a href="/todo/{id}/delete">Delete</a> </td>
+            <td> <a href="/todo/{id}/edit">Edit</a> </td>
         </tr>
     </th:block>
 </table>

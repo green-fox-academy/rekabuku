@@ -4,10 +4,7 @@ import com.greenfoxacademy.todo.models.Todo;
 import com.greenfoxacademy.todo.repositories.TodoRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class TodoController {
@@ -18,33 +15,57 @@ public class TodoController {
     }
 
     @GetMapping("/todo")
-    public String list(Model model){
+    public String list(Model model) {
         model.addAttribute("todos", todoRepository.findAll());
         return "todolist";
     }
 
 
-    @RequestMapping(value= {"/todo/list"})
-    public String list(@RequestParam ("isActive")Boolean done, Model model){
+    @RequestMapping(value = {"/todo/list"})
+    public String list(@RequestParam("isActive") Boolean done, Model model) {
         model.addAttribute("todos", todoRepository.findAll());
         model.addAttribute("done", done);
         return "activetodo";
     }
 
     @GetMapping("/todo/add")
-    public String addTodo(){
+    public String addTodo() {
         return "add";
     }
 
     @PostMapping("/todo/add")
-    public String getName(@RequestParam ("todo") String todo){
-        if(todo.isEmpty()){
+    public String getName(@RequestParam("todo") String todo) {
+        if (todo.isEmpty()) {
             return "add";
-
         }
         Todo newTodo = new Todo();
         newTodo.setTitle(todo);
         todoRepository.save(newTodo);
         return "redirect:/todo";
     }
+
+    @GetMapping("/todo/{id}/edit")
+    public String edit() {
+        return "edit";
+    }
+
+    @PostMapping("/todo/{id}/edit")
+    public String editTodo(@PathVariable(value = "id") Long id, String title, boolean done, boolean urgent) {
+        Todo todo = todoRepository.findById(id).get();
+        todo.setTitle(title);
+        todo.setDone(done);
+        todo.setUrgent(urgent);
+        todoRepository.save(todo);
+        return "redirect:/todo";
+    }
+
+    @GetMapping("/{id}/delete")
+    public String delete(@PathVariable(value = "id") Long id) {
+        Todo todo = todoRepository.findById(id).get();
+        todoRepository.delete(todo);
+        return "redirect:/todo/";
+    }
 }
+
+
+
