@@ -37,3 +37,11 @@ td {
     text-align: left;
     border: 2px solid darkgray;
 }
+
+.button{
+    background-color: green;
+    color: white;
+    width: 70px;
+    height: 30px;
+    border-radius: 40px;
+}
