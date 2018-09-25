@@ -16,7 +16,7 @@
         <th>DONE</th>
     </tr>
     </thead>
-    <th:block th:each="task : ${todos}">
+    <th:block th:each="task : ${todos}" th:if=" ${!done} == ${task.done}">
         <tr>
             <td th:text="${task.id}"/>
             <td th:text="${task.urgent}"/>
