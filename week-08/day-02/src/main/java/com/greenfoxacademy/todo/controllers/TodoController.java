@@ -62,7 +62,13 @@ public class TodoController {
     public String delete(@PathVariable(value = "id") Long id) {
         Todo todo = todoRepository.findById(id).get();
         todoRepository.delete(todo);
-        return "redirect:/todo/";
+        return "redirect:/todo";
+    }
+
+    @PostMapping("/todo/{id}/delete")
+    public String delete(@PathVariable(value = "id") Long id, Todo todo) {
+        todoRepository.delete(todo);
+        return "redirect:/todo";
     }
 }
 
