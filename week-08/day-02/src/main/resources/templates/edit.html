@@ -6,23 +6,23 @@
     <title>Edit todo</title>
 </head>
 <body>
-<form action="/todo/{id}/edit" method="post">
+<form th:action="@{|/todo/${todo.id}/edit|}" method="post">
     <h1>Edit todo</h1>
     <div>
-        <label for="todo">Todo Description</label><br>
-        <input type="text" id="todo" name="todo">
+        <label for="title">Todo Description</label><br>
+        <input th:field = "${todo.title}" type="text" id="title" name="title">
     </div>
     <div>
-        <label for="isDone">Done</label>
-        <input type="checkbox" name="done" th:checked="${isDone}" id="isDone">
+        <label for="done">Done</label>
+        <input th:field="${todo.done}" type="checkbox" name="done" id="done">
     </div>
     <div>
-        <label for="isUrgent">Urgent</label>
-        <input type="checkbox" name="urgent" th:checked="${isUrgent}" id="isUrgent">
+        <label for="urgent">Urgent</label>
+        <input th:field="${todo.urgent}" type="checkbox" name="urgent" id="urgent" >
     </div>
     <div>
         <button  class="button" type="submit">Submit</button>
     </div>
-
+</form>
 </body>
 </html>

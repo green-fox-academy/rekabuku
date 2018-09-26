@@ -45,21 +45,20 @@ public class TodoController {
     }
 
     @GetMapping("/todo/{id}/edit")
-    public String edit() {
+    public String edit(@PathVariable(value = "id") Long id, Model model) {
+        Todo todo = todoRepository.findById(id).get();
+        model.addAttribute("todo", todo);
         return "edit";
     }
 
     @PostMapping("/todo/{id}/edit")
-    public String editTodo(@PathVariable(value = "id") Long id, String title, boolean done, boolean urgent) {
-        Todo todo = todoRepository.findById(id).get();
-        todo.setTitle(title);
-        todo.setDone(done);
-        todo.setUrgent(urgent);
+    public String editTodo(@PathVariable(value = "id") Long id, Model model, Todo todo) {
+        model.addAttribute("todo", todo);
         todoRepository.save(todo);
         return "redirect:/todo";
     }
 
-    @GetMapping("/{id}/delete")
+    @GetMapping("/todo/{id}/delete")
     public String delete(@PathVariable(value = "id") Long id) {
         Todo todo = todoRepository.findById(id).get();
         todoRepository.delete(todo);
