@@ -70,6 +70,12 @@ public class TodoController {
         todoRepository.delete(todo);
         return "redirect:/todo";
     }
+
+    @GetMapping("/todo/search")
+    public String list(String search, Model model) {
+        model.addAttribute("todos", todoRepository.findByTitle(search));
+        return "search";
+    }
 }
 
 
