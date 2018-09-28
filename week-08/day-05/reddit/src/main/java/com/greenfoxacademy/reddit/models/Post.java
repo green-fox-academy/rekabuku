@@ -13,7 +13,7 @@ public class Post {
     private String title;
     private long rating;
 
-    public Post(String title, long rating) {
+    public Post() {
         this.title = title;
         this.rating = rating;
     }
