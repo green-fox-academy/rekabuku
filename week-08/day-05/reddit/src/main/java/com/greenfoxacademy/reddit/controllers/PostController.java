@@ -1,9 +1,14 @@
 package com.greenfoxacademy.reddit.controllers;
 
+import com.greenfoxacademy.reddit.models.Post;
 import com.greenfoxacademy.reddit.services.PostServiceImpl;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+@Controller
 public class PostController {
     private PostServiceImpl postServiceImpl;
 
@@ -15,5 +20,20 @@ public class PostController {
     public String list(Model model) {
         model.addAttribute("posts", postServiceImpl.list());
         return "main";
+    }
+
+    @GetMapping("/newpost")
+    public String addNewPost() {
+        return "post";
+    }
+    @PostMapping("/newpost")
+    public String getPostName(@RequestParam("post") String post) {
+        if (post.isEmpty()) {
+            return "post";
+        }
+        Post newPost = new Post();
+        newPost.setTitle(post);
+        postServiceImpl.save(newPost);
+        return "redirect:/reddit";
     }
 }
