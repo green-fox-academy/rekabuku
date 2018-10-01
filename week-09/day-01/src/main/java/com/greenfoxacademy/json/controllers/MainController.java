@@ -4,6 +4,9 @@ import com.greenfoxacademy.json.model.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class MainController {
 
@@ -73,7 +76,7 @@ public class MainController {
     @ResponseBody
     public ArrayResult arrayHandler(@RequestBody ArrayInput arrayInput) {
         if (arrayInput.getWhat().equals("sum")) {
-            Integer sum = 0;
+            int sum = 0;
             for (int i = 0; i <= arrayInput.getNumbers().size(); i++) {
                 sum = sum + i;
             }
@@ -83,20 +86,21 @@ public class MainController {
 
         if (arrayInput.getWhat().equals("multiply")) {
             int multiply = 1;
-            for (int i = 1; i <=arrayInput.getNumbers().size(); i++) {
-                multiply = multiply * i;
+            for (int i = 0; i <= arrayInput.getNumbers().size(); i++) {
+                multiply = multiply * arrayInput.getNumbers().get(i);
             }
             ArrayResult arrayResult = new ArrayResult(multiply);
             return arrayResult;
         }
 
         if (arrayInput.getWhat().equals("double")) {
-            for (int i = 0; i <; i++) {
-
+            List<Integer> result = new ArrayList<>();
+            for (int i = 0; i < arrayInput.getNumbers().size(); i++) {
+                result.add(arrayInput.getNumbers().get(i)*2) ;
             }
-
+            ArrayResult arrayResult = new ArrayResult(result);
+            return arrayResult;
         }
-        return new ArrayResult(doubling);
 
         return new ArrayResult("Please provide what to do with the numbers!");
     }
