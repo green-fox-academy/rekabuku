@@ -6,12 +6,8 @@
     <title>Title</title>
 </head>
 <body class="container">
-<ul>
-    <li>
-        <a href="/newpost">Submit a new post</a>
-    </li>
-</ul>
-<h1>Trending posts</h1>
+<h1>Trending posts</h1><br>
+<a href="/newpost" class="btn btn-info">Submit a new post</a><br>
 <table class="table table-hover">
     <thead>
     <tr>
@@ -28,7 +24,7 @@
             <td th:text="${post.rating}"/>
             <td><a th:href="@{|/reddit/${post.id}/downvote|}" class="btn btn-danger">-</a></td>
             <td><a th:href="@{|/reddit/${post.id}/upvote|}" class="btn btn-success">+</a></td>
-            <td th:text="${post.title}"/>
+            <td><a th:href="${post.url}" th:text="${post.title}"></a></td>
             <td th:text="${post.created}"/>
             <td><a th:href="@{|/reddit/${post.id}/delete|}" class="btn btn-danger">Delete</a></td>
         </tr>

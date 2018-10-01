@@ -16,4 +16,5 @@ public interface PostService {
 
     public void upVote (Long id);
 
+    public void delete(Long id);
 }

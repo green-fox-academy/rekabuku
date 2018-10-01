@@ -15,6 +15,7 @@ public class Post {
     private String title;
     private long rating;
     private String created;
+    private String url;
 
     public Post() {
         this.title = title;
@@ -22,7 +23,18 @@ public class Post {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MMMM dd. HH:mm:ss");
         this.created = now.format(formatter);
+        this.url = url;
     }
+    public Post(String title, String url) {
+        this.title = title;
+        this.rating = rating;
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MMMM dd. HH:mm:ss");
+        this.created = now.format(formatter);
+        this.url = url;
+    }
+
+
 
     public long getId() {
         return id;
@@ -54,6 +66,16 @@ public class Post {
 
     public void setCreated(String created) {
         this.created = created;
+    }
+
+
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Override

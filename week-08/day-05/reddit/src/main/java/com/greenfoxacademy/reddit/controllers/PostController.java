@@ -4,10 +4,7 @@ import com.greenfoxacademy.reddit.models.Post;
 import com.greenfoxacademy.reddit.services.PostServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class PostController {
@@ -27,13 +24,16 @@ public class PostController {
     public String addNewPost() {
         return "post";
     }
+
     @PostMapping("/newpost")
-    public String getPostName(@RequestParam("post") String post) {
-        if (post.isEmpty()) {
+    public String getPostName(@RequestParam("title") String title,
+                              @RequestParam("url") String url) {
+        if (title.isEmpty() || url.isEmpty()) {
             return "post";
         }
         Post newPost = new Post();
-        newPost.setTitle(post);
+        newPost.setTitle(title);
+        newPost.setUrl(url);
         postServiceImpl.save(newPost);
         return "redirect:/reddit";
     }
@@ -44,6 +44,7 @@ public class PostController {
         postServiceImpl.downVote(id);
         return "redirect:/reddit";
     }
+
     @GetMapping("/reddit/{id}/upvote")
     public String upVote(@PathVariable(value = "id") Long id) {
         Post post = postServiceImpl.findById(id);
@@ -51,6 +52,11 @@ public class PostController {
         return "redirect:/reddit";
     }
 
-
+    @GetMapping("/reddit/{id}/delete")
+    public String delete(@PathVariable(value = "id") Long id) {
+        Post post = postServiceImpl.findById(id);
+        postServiceImpl.delete(id);
+        return "redirect:/reddit";
+    }
 
 }
