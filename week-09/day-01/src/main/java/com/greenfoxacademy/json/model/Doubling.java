@@ -3,10 +3,13 @@ package com.greenfoxacademy.json.model;
 public class Doubling {
     private long received;
     private long result;
+    private String error;
+
 
     public Doubling() {
         this.received = received;
         this.result = result;
+        this.error = error;
     }
 
     public long getReceived() {
@@ -23,5 +26,13 @@ public class Doubling {
 
     public void setResult(long result) {
         this.result = result;
+    }
+
+    public String getError() {
+        return error;
+    }
+
+    public void setError(String error) {
+        this.error = error;
     }
 }

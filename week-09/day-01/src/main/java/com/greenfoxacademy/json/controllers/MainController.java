@@ -16,8 +16,12 @@ public class MainController {
 
     @GetMapping("/doubling")
     @ResponseBody
-    public Doubling doublingMethod(@RequestParam("input") long input) {
+    public Doubling doublingMethod(@RequestParam("input") Long input) {
        Doubling doubling = new Doubling();
+       if (input == null){
+           doubling.setError("Please provide an input!");
+       return doubling;
+       }
        doubling.setReceived(input);
        doubling.setResult(input*2);
        return doubling;
