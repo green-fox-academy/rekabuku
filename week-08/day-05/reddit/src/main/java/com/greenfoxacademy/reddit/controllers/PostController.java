@@ -36,4 +36,6 @@ public class PostController {
         postServiceImpl.save(newPost);
         return "redirect:/reddit";
     }
+
+
 }

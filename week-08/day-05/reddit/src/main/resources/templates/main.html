@@ -5,14 +5,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body class="container">
 <ul>
     <li>
-        <a href="/newpost">Submit new post</a>
+        <a href="/newpost">Submit a new post</a>
     </li>
 </ul>
 <h1>Trending posts</h1>
-
 <table class="table table-hover">
     <th:block th:each="post : ${posts}">
         <tr>
@@ -21,7 +20,6 @@
         </tr>
     </th:block>
 </table>
-
 </body>
 <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>

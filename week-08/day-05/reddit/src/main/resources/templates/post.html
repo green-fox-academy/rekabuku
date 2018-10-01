@@ -5,15 +5,18 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body class="container">
 <form action="/newpost" method="post">
     <h1>Submit a new post</h1>
     <div>
         <label for="post">Title</label><br>
         <input type="text" id="post" name="post">
+    </div>
+    <div>
         <label for="url">URL</label><br>
         <input type="url" id="url" name="url">
     </div>
+    <br>
     <div>
         <button  class="btn btn-success" type="submit">Submit</button>
     </div>
