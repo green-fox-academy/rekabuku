@@ -16,6 +16,8 @@
     <th:block th:each="post : ${posts}">
         <tr>
             <td th:text="${post.rating}"/>
+            <td><a th:href="@{|/reddit/${post.id}/downvote|}" class="btn btn-danger">-</a></td>
+            <td><a th:href="@{|/reddit/${post.id}/upvote|}" class="btn btn-success">+</a></td>
             <td th:text="${post.title}"/>
         </tr>
     </th:block>

@@ -5,6 +5,7 @@ import com.greenfoxacademy.reddit.services.PostServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -36,6 +37,20 @@ public class PostController {
         postServiceImpl.save(newPost);
         return "redirect:/reddit";
     }
+
+    @GetMapping("/reddit/{id}/downvote")
+    public String downVote(@PathVariable(value = "id") Long id) {
+        Post post = postServiceImpl.findById(id);
+        postServiceImpl.downVote(id);
+        return "redirect:/reddit";
+    }
+    @GetMapping("/reddit/{id}/upvote")
+    public String upVote(@PathVariable(value = "id") Long id) {
+        Post post = postServiceImpl.findById(id);
+        postServiceImpl.upVote(id);
+        return "redirect:/reddit";
+    }
+
 
 
 }

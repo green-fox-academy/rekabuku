@@ -13,6 +13,7 @@ public class Post {
     private long id;
     private String title;
     private long rating;
+    private long voting;
 
     public Post() {
         this.title = title;
@@ -41,6 +42,14 @@ public class Post {
 
     public void setRating(long rating) {
         this.rating = rating;
+    }
+
+    public long getVoting() {
+        return voting;
+    }
+
+    public void setVoting(long voting) {
+        this.voting = voting;
     }
 
     @Override
