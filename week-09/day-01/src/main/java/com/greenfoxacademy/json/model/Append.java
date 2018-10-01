@@ -7,12 +7,5 @@ public class Append {
         this.appended = appended;
     }
 
-    public String getAppended() {
-        return appended;
-    }
-
-    public void setAppended(String appended) {
-        this.appended = appended;
-    }
 }
 

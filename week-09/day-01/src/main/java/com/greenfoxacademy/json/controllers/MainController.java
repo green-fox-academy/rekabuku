@@ -1,13 +1,8 @@
 package com.greenfoxacademy.json.controllers;
 
-import com.greenfoxacademy.json.model.Append;
-import com.greenfoxacademy.json.model.Doubling;
-import com.greenfoxacademy.json.model.Greeting;
+import com.greenfoxacademy.json.model.*;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
@@ -47,7 +42,30 @@ public class MainController {
 
     @GetMapping("/appenda/{appendable}")
     @ResponseBody
-    public Append appendWith (@PathVariable  String appendable){
-        return new Append(appendable +"a");
+    public Append appendWith(@PathVariable String appendable) {
+        return new Append(appendable + "a");
+    }
+
+    @PostMapping("/dountil/{action}")
+    @ResponseBody
+    public Result doUntil(@PathVariable String action, @RequestBody Until until) {
+        if (action.equals("sum")) {
+            int sum = 0;
+            for (int i = 0; i <= until.getUntil(); i++) {
+                sum = sum + i;
+            }
+            Result result = new Result(sum);
+            return result;
+        }
+
+        if (action.equals("factor")) {
+            int factor = 1;
+            for (int i = 1; i <= until.getUntil(); i++) {
+                factor = factor * i;
+            }
+            Result result = new Result(factor);
+            return result;
+        }
+        return new Result("Please provide a number!");
     }
 }
