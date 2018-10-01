@@ -1,9 +1,11 @@
 package com.greenfoxacademy.json.controllers;
 
+import com.greenfoxacademy.json.model.Append;
 import com.greenfoxacademy.json.model.Doubling;
 import com.greenfoxacademy.json.model.Greeting;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -34,12 +36,18 @@ public class MainController {
         if (name.isEmpty() && title.isEmpty()) {
             return new Greeting("null", "Please provide a name and a title!");
         }
-            if (name.isEmpty()) {
-                return new Greeting("null", "Please provide a name!");
+        if (name.isEmpty()) {
+            return new Greeting("null", "Please provide a name!");
         }
         if (title.isEmpty()) {
             return new Greeting("null", "Please provide a title!");
         }
         return new Greeting("Oh, hi there " + name + ", my dear " + title);
+    }
+
+    @GetMapping("/appenda/{appendable}")
+    @ResponseBody
+    public Append appendWith (@PathVariable  String appendable){
+        return new Append(appendable +"a");
     }
 }
