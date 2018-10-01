@@ -68,4 +68,36 @@ public class MainController {
         }
         return new Result("Please provide a number!");
     }
+
+    @PostMapping("/arrays")
+    @ResponseBody
+    public ArrayResult arrayHandler(@RequestBody ArrayInput arrayInput) {
+        if (arrayInput.getWhat().equals("sum")) {
+            Integer sum = 0;
+            for (int i = 0; i <= arrayInput.getNumbers().size(); i++) {
+                sum = sum + i;
+            }
+            ArrayResult arrayResult = new ArrayResult(sum);
+            return arrayResult;
+        }
+
+        if (arrayInput.getWhat().equals("multiply")) {
+            int multiply = 1;
+            for (int i = 1; i <=arrayInput.getNumbers().size(); i++) {
+                multiply = multiply * i;
+            }
+            ArrayResult arrayResult = new ArrayResult(multiply);
+            return arrayResult;
+        }
+
+        if (arrayInput.getWhat().equals("double")) {
+            for (int i = 0; i <; i++) {
+
+            }
+
+        }
+        return new ArrayResult(doubling);
+
+        return new ArrayResult("Please provide what to do with the numbers!");
+    }
 }
