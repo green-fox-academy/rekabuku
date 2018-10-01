@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Post {
@@ -13,11 +14,14 @@ public class Post {
     private long id;
     private String title;
     private long rating;
-    private long voting;
+    private String created;
 
     public Post() {
         this.title = title;
         this.rating = rating;
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy.MMMM dd. HH:mm:ss");
+        this.created = now.format(formatter);
     }
 
     public long getId() {
@@ -44,12 +48,12 @@ public class Post {
         this.rating = rating;
     }
 
-    public long getVoting() {
-        return voting;
+    public String getCreated() {
+        return created;
     }
 
-    public void setVoting(long voting) {
-        this.voting = voting;
+    public void setCreated(String created) {
+        this.created = created;
     }
 
     @Override
