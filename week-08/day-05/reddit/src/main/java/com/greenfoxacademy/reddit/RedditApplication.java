@@ -22,10 +22,12 @@ public class RedditApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         Post post = new Post();
-        post.setTitle("Drink coffee");
+        post.setTitle("Daily news");
         post.setRating(3);
+        post.setUrl("https://index.hu/");
         Post post2 = new Post();
-        post2.setTitle("Clean the bathroom");
+        post2.setTitle("Have some fun!");
+        post2.setUrl("https://9gag.com/");
         post2.setRating(5);
 
         postServiceImpl.save(post);

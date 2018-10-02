@@ -26,8 +26,7 @@ public class PostController {
     }
 
     @PostMapping("/newpost")
-    public String getPostName(@RequestParam("title") String title,
-                              @RequestParam("url") String url) {
+    public String getPostName(String title, String url) {
         if (title.isEmpty() || url.isEmpty()) {
             return "post";
         }
