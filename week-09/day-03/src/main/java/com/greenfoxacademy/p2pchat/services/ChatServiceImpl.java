@@ -1,5 +1,6 @@
 package com.greenfoxacademy.p2pchat.services;
 
+import com.greenfoxacademy.p2pchat.models.Message;
 import com.greenfoxacademy.p2pchat.models.User;
 import com.greenfoxacademy.p2pchat.repositories.MessageRepository;
 import com.greenfoxacademy.p2pchat.repositories.UserRepository;
@@ -38,6 +39,19 @@ public class ChatServiceImpl implements ChatService {
     public String getName() {
         User user = userRepository.findById(1L).orElseThrow(IllegalArgumentException::new);
        return user.getUsername();
+    }
+
+    @Override
+    public void saveMessage (Message message) {
+        User user = userRepository.findById(1L).orElseThrow(IllegalArgumentException::new);
+        message.setUsername(user.getUsername());
+        messageRepository.save(message);
+    }
+
+    @Override
+    public Iterable<Message> findAllMessages(){
+        return messageRepository.findAll();
+
     }
 
 }

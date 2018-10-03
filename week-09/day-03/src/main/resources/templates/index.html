@@ -8,10 +8,35 @@
 <body class="container">
 <h1>Peer to Peer Chat program</h1>
 <p th:text="${error} "></p>
-<form action="/" method="post">
+<form action="/update" method="post">
     <label for="username">Your username</label>
-    <input type="text" name="username" id = "username" th:placeholder="${username}"><br>
-    <button  class="btn btn-info" type="submit">Update</button>
+    <input th:value="${username}" type="text" name="username" id="username">
+    <button class="btn btn-info" type="submit">Update</button>
+</form>
+<br>
+<div>
+    <ul>
+        <li>
+            <span >App</span></br>
+            <span>Hi there! Submit your message using the send button!</span>
+        </li>
+    </ul>
+</div>
+<div>
+<th:block th:each="message: ${messages}">
+    <ul >
+        <li>
+            <span th:text="${message.username}"></span></br>
+            <span th:text="${message.text}"></span>
+        </li>
+
+    </ul>
+</th:block>
+</div>
+<br>
+<form action="/send" method="post">
+    <textarea name="text" cols="20" rows="5"></textarea><br>
+    <button class="btn btn-success" type="submit">Submit</button>
 </form>
 </body>
 <script src="webjars/jquery/1.11.1/jquery.min.js"></script>
