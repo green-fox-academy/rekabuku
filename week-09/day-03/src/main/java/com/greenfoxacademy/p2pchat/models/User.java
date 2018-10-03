@@ -9,6 +9,11 @@ public class User {
     private long id;
     private String username;
 
+    public User() {
+        this.username = username;
+        this.id = 1;
+    }
+
     public User(String username) {
         this.username = username;
         this.id = 1;
