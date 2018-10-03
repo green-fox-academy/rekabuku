@@ -11,4 +11,6 @@ public interface ChatService {
     public void update(String username);
 
     public Optional<User> checkIfExists();
+
+    public String getName ();
 }

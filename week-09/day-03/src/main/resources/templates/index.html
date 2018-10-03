@@ -7,9 +7,10 @@
 </head>
 <body class="container">
 <h1>Peer to Peer Chat program</h1>
+<p th:text="${error} "></p>
 <form action="/" method="post">
     <label for="username">Your username</label>
-    <input type="text" name="username" id = "username" placeholder="Enter your name"><br>
+    <input type="text" name="username" id = "username" th:placeholder="${username}"><br>
     <button  class="btn btn-info" type="submit">Update</button>
 </form>
 </body>

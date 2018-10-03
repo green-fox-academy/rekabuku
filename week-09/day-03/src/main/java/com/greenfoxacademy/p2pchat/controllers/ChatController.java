@@ -17,9 +17,13 @@ public class ChatController {
     }
 
     @GetMapping("/")
-    public String displayMain() {
+    public String displayMain(@RequestParam(required = false) String error, Model model) {
+        model.addAttribute("error", error);
+
         if (chatService.checkIfExists().isPresent()) {
+            model.addAttribute("username", chatService.getName());
             return "index";
+
         } else
             return "redirect:/register";
     }
@@ -27,8 +31,9 @@ public class ChatController {
     @PostMapping("/")
     public String updateUser(@RequestParam("username") String username) {
         if (username.isEmpty()) {
-            return "redirect:/";
+            return "redirect:/?error=The username is empty!";
         }
+        
         chatService.update(username);
         return "redirect:/";
     }
@@ -42,9 +47,9 @@ public class ChatController {
     @PostMapping("/register")
     public String saveUser(String username) {
         if (username.isEmpty()) {
-
             return "redirect:/register?error=The username is empty!";
         }
+
         User newUser = new User();
         newUser.setUsername(username);
         chatService.save(newUser);

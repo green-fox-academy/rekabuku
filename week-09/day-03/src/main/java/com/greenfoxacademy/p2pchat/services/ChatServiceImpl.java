@@ -34,4 +34,10 @@ public class ChatServiceImpl implements ChatService {
         return userRepository.findById(1L);
     }
 
+    @Override
+    public String getName() {
+        User user = userRepository.findById(1L).orElseThrow(IllegalArgumentException::new);
+       return user.getUsername();
+    }
+
 }
