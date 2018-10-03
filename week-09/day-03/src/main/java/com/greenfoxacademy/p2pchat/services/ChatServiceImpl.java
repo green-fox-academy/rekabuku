@@ -5,6 +5,8 @@ import com.greenfoxacademy.p2pchat.repositories.MessageRepository;
 import com.greenfoxacademy.p2pchat.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ChatServiceImpl implements ChatService {
     private MessageRepository messageRepository;
@@ -19,4 +21,17 @@ public class ChatServiceImpl implements ChatService {
     public void save(User user) {
         userRepository.save(user);
     }
+
+    @Override
+    public void update(String username) {
+        User user = userRepository.findById(1L).orElseThrow(IllegalArgumentException::new);
+        user.setUsername(username);
+        userRepository.save(user);
+    }
+
+    @Override
+    public Optional<User> checkIfExists() {
+        return userRepository.findById(1L);
+    }
+
 }

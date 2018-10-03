@@ -3,8 +3,10 @@ package com.greenfoxacademy.p2pchat.controllers;
 import com.greenfoxacademy.p2pchat.models.User;
 import com.greenfoxacademy.p2pchat.services.ChatService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ChatController {
@@ -15,19 +17,33 @@ public class ChatController {
     }
 
     @GetMapping("/")
-    public String displayMain(){
-        return "index";
+    public String displayMain() {
+        if (chatService.checkIfExists().isPresent()) {
+            return "index";
+        } else
+            return "redirect:/register";
+    }
+
+    @PostMapping("/")
+    public String updateUser(@RequestParam("username") String username) {
+        if (username.isEmpty()) {
+            return "redirect:/";
+        }
+        chatService.update(username);
+        return "redirect:/";
     }
 
     @GetMapping("/register")
-    public String registerUser (){
+    public String registerUser(@RequestParam(required = false) String error, Model model) {
+        model.addAttribute("error", error);
         return "register";
     }
 
     @PostMapping("/register")
-    public String saveUser (String username){
-        if (username.isEmpty()){
-            return "register";
+    public String saveUser(String username) {
+        if (username.isEmpty()) {
+
+            return "redirect:/register?error=The username is empty!";
         }
         User newUser = new User();
         newUser.setUsername(username);
@@ -37,5 +53,5 @@ public class ChatController {
     }
 
 
-
 }
+
