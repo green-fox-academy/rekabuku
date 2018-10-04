@@ -1,13 +1,15 @@
 package com.greenfoxacademy.p2pchat.controllers;
 
+import com.greenfoxacademy.p2pchat.dtos.JsonResponseDto;
+import com.greenfoxacademy.p2pchat.dtos.MessageReceiveDto;
 import com.greenfoxacademy.p2pchat.models.Message;
 import com.greenfoxacademy.p2pchat.models.User;
 import com.greenfoxacademy.p2pchat.services.ChatService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @Controller
 public class ChatController {
@@ -68,6 +70,13 @@ public class ChatController {
 
     }
 
-
+    @PostMapping("api/message/receive")
+    @ResponseBody
+    public JsonResponseDto receiveMessage (@Valid @RequestBody MessageReceiveDto messageReceiveDto){
+        if (messageReceiveDto.getMessage() != null && messageReceiveDto.getClient() != null) {
+            chatService.saveMessage(messageReceiveDto.getMessage());
+            return new JsonResponseDto("ok");
+        } else return new JsonResponseDto("error", "Missing field(s): message.timestamp, client.id");
+    }
 }
 

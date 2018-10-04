@@ -18,4 +18,5 @@ public interface ChatService {
     public void saveMessage (Message message);
 
     public Iterable<Message> findAllMessages();
+
 }

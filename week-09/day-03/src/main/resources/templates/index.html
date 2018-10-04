@@ -17,25 +17,24 @@
 <div>
     <ul>
         <li>
-            <span >App</span></br>
+            <span>App</span></br>
             <span>Hi there! Submit your message using the send button!</span>
         </li>
     </ul>
 </div>
 <div>
-<th:block th:each="message: ${messages}">
-    <ul >
-        <li>
-            <span th:text="${message.username}"></span></br>
-            <span th:text="${message.text}"></span>
-        </li>
-
-    </ul>
-</th:block>
+    <th:block th:each="message: ${messages}">
+        <ul>
+            <li>
+                <span th:text="${message.username}"></span></br>
+                <span th:text="${message.text}"></span>
+            </li>
+        </ul>
+    </th:block>
 </div>
 <br>
 <form action="/send" method="post">
-    <textarea name="text" cols="20" rows="5"></textarea><br>
+    <textarea name="text" cols="60" rows="5"></textarea><br>
     <button class="btn btn-success" type="submit">Submit</button>
 </form>
 </body>
