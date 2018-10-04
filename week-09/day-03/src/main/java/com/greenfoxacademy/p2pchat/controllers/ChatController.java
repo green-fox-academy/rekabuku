@@ -65,6 +65,7 @@ public class ChatController {
     public String saveMessage(String text) {
         Message newMessage = new Message();
         newMessage.setText(text);
+        newMessage.setUsername(chatService.getName());
         chatService.saveMessage(newMessage);
         return "redirect:/";
 
@@ -78,5 +79,8 @@ public class ChatController {
             return new JsonResponseDto("ok");
         } else return new JsonResponseDto("error", "Missing field(s): message.timestamp, client.id");
     }
+
+
+
 }
 

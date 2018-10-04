@@ -19,4 +19,5 @@ public interface ChatService {
 
     public Iterable<Message> findAllMessages();
 
+
 }
